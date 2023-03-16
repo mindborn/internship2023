@@ -1,0 +1,25 @@
+item
+    name
+    rate
+    qty
+    constructor()
+
+order
+    item[]
+    customername
+    address
+
+    constructor()
+    additem(name, rate, qty)
+    removeitem(name)
+    showorder()
+
+
+let o=new Order("abcd","solapur");
+o.additem("pen",10,5);
+o.additem("pencil",10,5);
+o.additem("cd",10,5);
+o.additem("dvd",10,5);
+o.removeitem("cd");
+
+o.showorder();

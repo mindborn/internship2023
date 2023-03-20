@@ -1,0 +1,107 @@
+RDBMS
+Relational Database Management System
+
+Table = collection of rows
+row = collection of columns
+
+employee
+id	name	address	contact		deptid	post	salary	active
+1		abcd	sola		98220000	101				SSE		10000	1
+2		efgh	pun			000				102				SM		20000	1
+1		ijkl	sola		98220000	101				SSE		30000	1
+
+department
+id	name	hod	active
+101	IT		p		1
+102	Sales	q		1
+
+
+Current Table
+-----
+Account
+id	holder	balance
+1		abcd		101000
+
+
+Historical Table
+------
+Account
+id	holder
+1		abcd
+2		efgh
+
+AccountBalance
+id	accountid	balance	date
+1		1				100000		1/1/2023
+2		1				101000		2/1/2023
+3		2				0					1/1/2023
+
+
+
+SQL - Structured Query Language
+
+DDL - Data Definition Language
+
+CREATE TABLE <tablename> (<columns>*)
+
+
+
+create table employee
+(
+	employeeid int primary key auto_increment,
+	deptid int,
+	name char(200),
+	address varchar(500),
+	salary int,
+	phone char(20),
+	dob date,
+	doj date,
+	lastlogin datetime,
+	prevexp float(9,2),
+	active tinyint
+);
+
+ALTER TABLE <tablename> <changes>;
+
+alter table employee add column pincode varchar(6);
+
+alter table employee drop column lastlogin;
+
+alter table employee add foreign key (deptid) reference department(departmentid);
+
+
+DROP TABLE <tablename>;
+
+drop table employee;
+
+
+
+DML - Data Manipulation Language
+
+INSERT INTO <tablename> VALUES (<values>*);
+
+insert into employee values
+(
+	0,
+	101,
+	'Abcd',
+	'Solapur',
+	20000,
+	'9822000000',
+	'1990/1/1',
+	'2023/2/3',
+	'2023/3/4 15:20',
+	5.587,
+	1
+);
+
+
+SELECT <columns | *> FROM <tablename> [condition];
+
+UPDATE <tablename> SET <updates> [condition];
+
+DELETE FROM <tablename> [condition];
+
+x TRUNCATE TABLE <tablename>;
+
+CRUD - CREATE, RETRIEVE, UPDATE, DELETE

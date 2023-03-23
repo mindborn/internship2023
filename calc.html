@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function onOperation(op)
+        {
+            let x1 = document.getElementById("n1");
+            let x2 = document.getElementById("n2");
+            let x3 = document.getElementById("n3");
+
+            let v1=parseFloat(x1.value);
+            let v2=parseFloat(x2.value);
+
+            switch (op)
+            {
+                case '+':
+                    x3.value = v1 + v2;
+                    break;
+                case '-':
+                    x3.value = v1 - v2;
+                    break;
+                case '/':
+                    x3.value = v1 / v2;
+                    break;
+                case '*':
+                    x3.value = v1 * v2;
+                    break;
+            }
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <input type="number" id="n1" />
+    <input type="number" id="n2" />
+    <button onclick="onOperation('+');">Add</button>
+    <button onclick="onOperation('-');">Sub</button>
+    <button onclick="onOperation('*');">Mul</button>
+    <button onclick="onOperation('/');">Div</button>
+    <input type="number" id="n3">
+</body>
+
+</html>

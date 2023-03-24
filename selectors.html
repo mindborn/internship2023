@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="name" class="title"></div>
+    <div class="address"></div>
+    <div class="address"></div>
+    <div class="address"></div>
+    <button></button>
+
+    <script>
+        let name=document.querySelector("div#name.title");
+        name.innerHTML='this is name';
+
+        let addresses=document.querySelectorAll(".address");
+        for(let address of addresses)
+        {
+            address.innerHTML='this is address';
+        }
+        document.querySelector("button").innerHTML='this is button';
+    </script>
+</body>
+</html>

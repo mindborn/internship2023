@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+       <div class="name">abcd</div> 
+       <div class="name">efgh</div> 
+       <div class="name">ijkl</div> 
+    </div>
+
+    <script>
+        let names=document.getElementsByClassName("name");
+        let i=0;
+        for(let name of names)
+        {
+            name.innerHTML='hello'+i;
+        }
+    </script>
+</body>
+</html>

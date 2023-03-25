@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function validate()
+        {
+            let isvalid = true;
+
+            let username = document.querySelector("#text_username").value;
+            if (username.length === 0)
+            {
+                document.querySelector("#text_username + span").style.display = 'inline';
+                isvalid = false;
+            }
+            else
+            {
+                document.querySelector("#text_username + span").style.display = 'none';
+            }
+
+            let password = document.querySelector("#text_password").value;
+            if (password.length === 0)
+            {
+                isvalid = false;
+                document.querySelector("#text_password + span").style.display = 'inline';
+            }
+            else
+            {
+                document.querySelector("#text_password + span").style.display = 'none';
+            }
+            let email = document.querySelector("#text_email").value;
+            if (email.length === 0)
+            {
+                isvalid = false;
+                document.querySelector("#text_email + span").style.display = 'inline';
+            }
+            else
+            {
+                document.querySelector("#text_email + span").style.display = 'none';
+            }
+
+            var pattern = /^\w[\w\.]*@[a-zA-Z_]+?\.[a-zA-Z]{2,6}$/;
+            if (!email.match(pattern))
+            {
+                isvalid = false;
+                document.querySelector("#text_email + span + span").style.display = 'inline';
+            }
+            else
+            {
+                document.querySelector("#text_email + span + span").style.display = 'none';
+            }
+
+            if (isvalid)
+            {
+                alert('submitting form');
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+    <div>
+        <span>Username</span><input id="text_username" type="text" /><span style="display: none">Username must not be
+            empty</span><br />
+        <span>Password</span><input id="text_password" type="password" /><span style="display: none">Password must not
+            be empty</span><br />
+        <span>Email</span><input type="email" id="text_email" />
+        <span style="display: none">Email is required</span>
+        <span style="display: none">Email is not in correct format</span>
+        <br />
+        <button type="button" onclick="validate()">Sign Up</button>
+    </div>
+</body>
+
+</html>

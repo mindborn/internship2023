@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span {
+            display: inline-block;
+            width: 20ch
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div>
+            <span>Sr. No</span>
+            <span>Item Name</span>
+            <span>Rate</span>
+            <span>Qty</span>
+            <span>Price</span>
+            <span>&nbsp;</span>
+        </div>
+    </div>
+    <div id="cart">
+    </div>
+
+    <hr />
+    <div>
+        <span>Total Amount</span>
+        <span id="span_total"></span>
+    </div>
+    <hr />
+
+    <div>
+        <span>Item Name</span>
+        <input id="text_itemname" type="text"><br />
+        <span>Rate</span>
+        <input id="text_rate" type="text"><br />
+        <span>Qty</span>
+        <input id="text_qty" type="text"><br />
+        <button onclick="onAddItem()">Add Item to Cart</button>
+    </div>
+
+    <script>
+
+        class Item
+        {
+            name;
+            rate;
+            qty;
+
+            constructor(name, rate, qty)
+            {
+                this.name = name;
+                this.rate = rate;
+                this.qty = qty;
+            }
+
+            get price()
+            {
+                return this.rate * this.qty;
+            }
+        }
+
+        let itemlist = [];
+
+        function onAddItem()
+        {
+            let itemname = document.querySelector("#text_itemname").value;
+            let rate = document.querySelector("#text_rate").value;
+            let qty = document.querySelector("#text_qty").value;
+
+            document.querySelector("#text_itemname").value = '';
+            document.querySelector("#text_rate").value = '';
+            document.querySelector("#text_qty").value = '';
+
+
+            let item = new Item(itemname, rate, qty);
+
+            itemlist.push(item);
+
+            updateItemListView();
+        }
+
+        function getTotalAmount()
+        {
+            let totalamount=0;
+            for(let i of itemlist)
+            {
+                totalamount+=i.price;
+            }
+            return totalamount;
+        }
+
+        function deleteItem(i)
+        {
+            itemlist.splice(i,1);
+            updateItemListView();
+        }
+
+        function updateItemListView()
+        {
+            //let amount=parseFloat(rate)*parseFloat(qty);
+            //totalamount+=amount;
+
+            document.querySelector("#span_total").innerText=getTotalAmount();
+
+            //itemcount++;
+
+            document.querySelector("#cart").innerHTML='';
+
+            let i=0;
+            for (let item of itemlist)
+            {
+                i++;
+                let span_srno = document.createElement("span");
+                span_srno.innerText = i;
+
+                let span_itemname = document.createElement("span");
+                span_itemname.innerText = item.name;
+
+                let span_rate = document.createElement("span");
+                span_rate.innerText = item.rate;
+
+                let span_qty = document.createElement("span");
+                span_qty.innerText = item.qty;
+
+                let span_price = document.createElement("span");
+                span_price.innerText = item.price;
+
+                let btn_delete=document.createElement("button");
+                btn_delete.innerText='Delete';
+
+                let div_item = document.createElement("div");
+                div_item.appendChild(span_srno);
+                div_item.appendChild(span_itemname);
+                div_item.appendChild(span_rate);
+                div_item.appendChild(span_qty);
+                div_item.appendChild(span_price);
+                div_item.appendChild(btn_delete);
+
+                document.querySelector("#cart").appendChild(div_item);
+
+                let j=i-1;
+                btn_delete.onclick=()=>deleteItem(j);
+            }
+        }
+
+        function t()
+        {
+            for (let i = 0; i < 4; i++)
+            {
+                let d = document.createElement("div");
+                let s1 = document.createElement("span");
+                let s2 = document.createElement("span");
+                let s3 = document.createElement("span");
+                let s4 = document.createElement("span");
+
+                s1.innerText = (i + 1);
+                s2.innerHTML = 'Item' + (i + 1);
+                s3.innerHTML = (i + 1) * 1000;
+                s4.innerHTML = (i + 1) * 10;
+
+                d.appendChild(s1);
+                d.appendChild(s2);
+                d.appendChild(s3);
+                d.appendChild(s4);
+
+                let cart = document.querySelector("#cart");
+                cart.appendChild(d);
+            }
+        }
+    </script>
+
+</body>
+
+</html>
+
+<!--
+
+    document.createElement("div");
+    element.append(childelement);
+-->

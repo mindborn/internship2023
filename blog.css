@@ -1,0 +1,29 @@
+.post
+{
+    padding: 20px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    margin: 40px;
+}
+
+.post .title
+{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.post .text
+{
+    color: #222222;
+}
+
+.post .author
+{
+    font-size: 0.8rem;
+}
+
+.post .date
+{
+    font-size: 0.8rem;
+    color: #444444;
+}

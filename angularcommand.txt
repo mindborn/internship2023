@@ -1,0 +1,18 @@
+Install
+
+npm i -g @angular/cli
+
+
+Create Project
+
+ng new <projectname>
+
+
+Run
+
+ng s -o
+
+
+Create New Component
+
+ng g c <componentname>

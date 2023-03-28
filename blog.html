@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="blog.css">
+
+    <script>
+        class Post {
+            title;
+            text;
+            author;
+            date;
+
+            constructor(title, text, author, date) {
+                this.title = title;
+                this.text = text;
+                this.author = author;
+                this.date = date;
+            }
+        }
+
+        let posts = [
+            new Post('Title1', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste minus doloribus quasi adipisci ipsa, dolorem molestias porro qui libero neque nam dolores, quam alias vero laboriosam perspiciatis, hic maxime incidunt!', 'Samarth', '1/1/2023'),
+            new Post('Title2', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste minus doloribus quasi adipisci ipsa, dolorem molestias porro qui libero neque nam dolores, quam alias vero laboriosam perspiciatis, hic maxime incidunt!', 'Samarth', '2/1/2023'),
+            new Post('Title3', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste minus doloribus quasi adipisci ipsa, dolorem molestias porro qui libero neque nam dolores, quam alias vero laboriosam perspiciatis, hic maxime incidunt!', 'Samarth', '3/1/2023'),
+            new Post('Title1', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste minus doloribus quasi adipisci ipsa, dolorem molestias porro qui libero neque nam dolores, quam alias vero laboriosam perspiciatis, hic maxime incidunt!', 'Samarth', '1/1/2023'),
+            new Post('Title2', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste minus doloribus quasi adipisci ipsa, dolorem molestias porro qui libero neque nam dolores, quam alias vero laboriosam perspiciatis, hic maxime incidunt!', 'Samarth', '2/1/2023'),
+            new Post('Title3', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste minus doloribus quasi adipisci ipsa, dolorem molestias porro qui libero neque nam dolores, quam alias vero laboriosam perspiciatis, hic maxime incidunt!', 'Samarth', '3/1/2023')
+        ];
+
+        function updateView() {
+            let i=0;
+            for (let post of posts) {
+                let div_title = document.createElement('div'); div_title.innerText=post.title;
+                let div_text = document.createElement('div'); div_text.innerText=post.text;
+                let div_author = document.createElement('div'); div_author.innerText=post.author;
+                let div_date = document.createElement('div'); div_date.innerText=post.date;
+
+                div_title.classList.add('title');
+                div_text.classList.add('text');
+                div_author.classList.add('author');
+                div_date.classList.add('date');
+                
+
+                let div_post=document.createElement('div');
+                div_post.appendChild(div_title);
+                div_post.appendChild(div_text);
+                div_post.appendChild(div_author);
+                div_post.appendChild(div_date);
+
+                div_post.classList.add('post');
+                if(i%2===0)
+                {
+                    div_post.style.backgroundColor='#ddd';
+                }
+                else
+                {
+                    div_post.style.backgroundColor='#fff';
+                }
+
+                // div_post.classList.toggle('post',true);
+
+                document.querySelector("#postcontainer").appendChild(div_post);
+
+                i++;
+            }
+        }
+
+    </script>
+
+</head>
+
+<body>
+    <div id="postcontainer">
+    </div>
+
+    <button onclick="updateView()">Get posts</button>
+</body>
+
+</html>

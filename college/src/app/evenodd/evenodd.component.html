@@ -1,0 +1,5 @@
+<input type="number" [class.even]="n%2===0" [class.odd]="n%2!==0" [(ngModel)]="n" />
+
+<div *ngIf="n%2===0" class="even">The number is even</div>
+<div *ngIf="n%2!==0" class="odd">The number is odd</div>
+

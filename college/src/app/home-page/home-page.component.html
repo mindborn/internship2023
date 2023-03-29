@@ -1,1 +1,13 @@
 <p>home-page works!</p>
+<h1>{{message}}</h1>
+{{n1}}+{{n2}}={{n1+n2}}<br/>
+
+<input type="number" value="{{n1}}" />+{{n2}}={{n1+n2}}<br/>
+<input type="number" [value]="n1" />+{{n2}}={{n1+n2}}<br/>
+<input type="number" [(ngModel)]="n1" />
++
+<input type="number" [(ngModel)]="n2" />={{n1+n2}}<br/>
+
+{{addNumbers()}}<br/>
+
+<button (click)='incN1()'>Increment N1</button>

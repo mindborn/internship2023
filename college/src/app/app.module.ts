@@ -8,6 +8,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { CalcComponent } from './calc/calc.component';
 import { EvenoddComponent } from './evenodd/evenodd.component';
 import { CartComponent } from './cart/cart.component';
+import { Cart2Component } from './cart2/cart2.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { CartComponent } from './cart/cart.component';
     HomePageComponent,
     CalcComponent,
     EvenoddComponent,
-    CartComponent
+    CartComponent,
+    Cart2Component
   ],
   imports: [
     BrowserModule,

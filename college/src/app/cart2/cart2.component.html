@@ -1,0 +1,38 @@
+<!-- <div *ngFor="let item of items">
+  Name : {{item.name}}<br/>
+  Rate : {{item.rate}}<br/>
+  Qty : {{item.qty}}
+</div> -->
+
+<table border="1" style="width:100%; border-collapse: collapse;">
+  <tr>
+    <th>Name</th>
+    <th>Rate</th>
+    <th>Qty</th>
+    <th>Discount</th>
+    <th>Price</th>
+    <th>&nbsp;</th>
+  </tr>
+  <tr *ngFor="let item of items; let i=index">
+    <td><input type="text" [(ngModel)]="item.name" /></td>
+    <td><input type="number" [(ngModel)]="item.rate" /></td>
+    <td><input type="number" [(ngModel)]="item.qty" /></td>
+    <td><input type="number" [(ngModel)]="item.discount" /></td>
+    <td>{{(item.rate * item.qty) * ((100-item.discount)/100)}}</td>
+    <button (click)="onDelete1(item)">Delete1</button>
+    <button (click)="items.splice(i,1)">Delete2</button>
+  </tr>
+  <tr>
+    <td colspan="4" style="text-align: right">Sub Total</td>
+    <td>{{getTotal()}}</td>
+  </tr>
+  <tr>
+    <td colspan="4" style="text-align: right">Discount</td>
+    <td><input type="number" [(ngModel)]="discount" /></td>
+  </tr>
+  <tr>
+    <td colspan="4" style="text-align: right">Total</td>
+    <td>{{getTotal()-discount}}</td>
+  </tr>
+</table>
+<button (click)="onAddItem()">Add New Item</button>

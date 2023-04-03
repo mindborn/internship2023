@@ -1,4 +1,8 @@
-<p>userdetails works!</p>
+Index: {{index}}<br/>
+Name : {{user?.name}}<br/>
+Address: {{user?.address}}<br/>
+Email : {{user?.email}}<br/>
 
-<button (click)="increment()">Increment</button>
-{{c.count}}
+<a *ngIf="index>0" [routerLink]="['/ud',index-1]">Prev</a>
+<a *ngIf="index<userdata.users.length-1" [routerLink]="['/ud',index+1]">Next</a>
+<br/><a routerLink="/">Back to Home</a>

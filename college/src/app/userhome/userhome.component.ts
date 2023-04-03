@@ -1,3 +1,4 @@
+import { UserdataService } from './../userdata.service';
 import { Component } from '@angular/core';
 import { CounterService } from '../counter.service';
 
@@ -8,13 +9,9 @@ import { CounterService } from '../counter.service';
 })
 export class UserhomeComponent {
 
-  constructor(public counter: CounterService)
+  constructor(public userdata: UserdataService)
   {
 
   }
 
-  increment()
-  {
-    this.counter.count++;
-  }
 }

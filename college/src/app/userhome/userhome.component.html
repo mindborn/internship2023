@@ -1,7 +1,5 @@
 <h1>Home Page</h1>
 
-<a routerLink='/ud'>View Details</a>
-<!-- <a href='/ud'>View Details</a> -->
-
-<button (click)="increment()">Increment</button>
-{{counter.count}}
+<div *ngFor="let user of userdata.users; let i=index">
+ <a [routerLink]="['/ud',i]"> {{user.name}}</a>
+</div>

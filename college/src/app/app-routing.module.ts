@@ -9,7 +9,7 @@ const routes: Routes = [
     component: UserhomeComponent
   },
   {
-    path: 'ud',
+    path: 'ud/:index',
     component: UserdetailsComponent
   }
 ];

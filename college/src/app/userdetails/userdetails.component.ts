@@ -1,20 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CounterService } from '../counter.service';
+import { UserdataService } from '../userdata.service';
+import { ActivatedRoute } from '@angular/router';
+import { User } from '../user';
 
 @Component({
   selector: 'app-userdetails',
   templateUrl: './userdetails.component.html',
   styleUrls: ['./userdetails.component.scss']
 })
-export class UserdetailsComponent {
+export class UserdetailsComponent implements OnInit {
 
-  constructor(public c: CounterService)
+  user:User|null=null;
+  index=0;
+
+  constructor(public userdata: UserdataService, private activatedRoute: ActivatedRoute)
   {
 
   }
+  ngOnInit(): void {
+    this.activatedRoute.paramMap.subscribe((params)=>{
+      let index=parseInt(params.get('index')!);
+      this.index=index;
+      console.log(index);
 
-  increment()
-  {
-    this.c.count++;
+      this.user=this.userdata.users[index];
+    });
   }
+
+
 }

@@ -1,0 +1,8 @@
+
+<app-item-card
+  *ngFor="let i of itemList"
+  [it]="i"
+  (deleted)="onDelete($event)"
+  (movetotop)="onMoveToTop($event)"
+  >
+</app-item-card>

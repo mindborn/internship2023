@@ -11,6 +11,8 @@ import { CartComponent } from './cart/cart.component';
 import { Cart2Component } from './cart2/cart2.component';
 import { UserhomeComponent } from './userhome/userhome.component';
 import { UserdetailsComponent } from './userdetails/userdetails.component';
+import { ItemListComponent } from './item-list/item-list.component';
+import { ItemCardComponent } from './item-card/item-card.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { UserdetailsComponent } from './userdetails/userdetails.component';
     CartComponent,
     Cart2Component,
     UserhomeComponent,
-    UserdetailsComponent
+    UserdetailsComponent,
+    ItemListComponent,
+    ItemCardComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,7 @@
 Index: {{index}}<br/>
-Name : {{user?.name}}<br/>
-Address: {{user?.address}}<br/>
-Email : {{user?.email}}<br/>
+Name : <input type="text" *ngIf="user" [(ngModel)]="user.name" /><br/>
+Address: <input type="text" *ngIf="user" [(ngModel)]="user.address"/><br/>
+Email : <input type="text" *ngIf="user" [(ngModel)]="user.email"/><br/>
 
 <a *ngIf="index>0" [routerLink]="['/ud',index-1]">Prev</a>
 <a *ngIf="index<userdata.users.length-1" [routerLink]="['/ud',index+1]">Next</a>

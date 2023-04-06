@@ -3,10 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { UserdetailsComponent } from './userdetails/userdetails.component';
 import { UserhomeComponent } from './userhome/userhome.component';
 import { ItemListComponent } from './item-list/item-list.component';
+import { Test1Component } from './test1/test1.component';
+import { TodoComponent } from './todo/todo.component';
+import { AlbumComponent } from './album/album.component';
 
 const routes: Routes = [
   {
-    path:'',
+    path: '',
     component: UserhomeComponent
   },
   {
@@ -14,8 +17,20 @@ const routes: Routes = [
     component: UserdetailsComponent
   },
   {
-    path:'item-list',
+    path: 'item-list',
     component: ItemListComponent
+  },
+  {
+    path: 'test1',
+    component: Test1Component
+  },
+  {
+    path: 'todo',
+    component: TodoComponent
+  },
+  {
+    path: 'album',
+    component: AlbumComponent
   }
 ];
 

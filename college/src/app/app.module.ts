@@ -13,6 +13,14 @@ import { UserhomeComponent } from './userhome/userhome.component';
 import { UserdetailsComponent } from './userdetails/userdetails.component';
 import { ItemListComponent } from './item-list/item-list.component';
 import { ItemCardComponent } from './item-card/item-card.component';
+import { D1Directive } from './d1.directive';
+import { Test1Component } from './test1/test1.component';
+import { RupeesPipe } from './rupees.pipe';
+import { TodoComponent } from './todo/todo.component';
+
+import { HttpClientModule } from '@angular/common/http';
+import { TaskstatusPipe } from './taskstatus.pipe';
+import { AlbumComponent } from './album/album.component';
 
 @NgModule({
   declarations: [
@@ -26,12 +34,19 @@ import { ItemCardComponent } from './item-card/item-card.component';
     UserhomeComponent,
     UserdetailsComponent,
     ItemListComponent,
-    ItemCardComponent
+    ItemCardComponent,
+    D1Directive,
+    Test1Component,
+    RupeesPipe,
+    TodoComponent,
+    TaskstatusPipe,
+    AlbumComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

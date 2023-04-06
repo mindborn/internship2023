@@ -1,0 +1,13 @@
+<div *ngFor="let photo of photo$ | async" style="display: inline-flex; flex-direction: column; width: 100px">
+  <a href="{{photo.url}}" target="_blank">
+    <img [src]="photo.thumbnailUrl" style="width: 100px" />
+  </a>
+  <div>{{photo.title}}</div>
+</div>
+
+<!-- <div *ngFor="let photo of photos" style="display: inline-flex; flex-direction: column; width: 100px">
+  <a href="{{photo.url}}" target="_blank">
+    <img [src]="photo.thumbnailUrl" style="width: 100px" />
+  </a>
+  <div>{{photo.title}}</div>
+</div> -->

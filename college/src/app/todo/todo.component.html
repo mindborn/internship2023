@@ -1,0 +1,6 @@
+<div *ngFor="let todo of todos" class="todo">
+  <div>{{todo.userId}}</div>
+  <div>{{todo.id}}</div>
+  <div>{{todo.title}}</div>
+  <div>{{todo | taskstatus}}</div>
+</div>

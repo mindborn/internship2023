@@ -1,0 +1,39 @@
+<div *ngFor="let doctor of doctors" class="doctor">
+  <div><input type="text" [(ngModel)]="doctor.name" /></div>
+  <div><input type="text" [(ngModel)]="doctor.address" /></div>
+  <div><input type="text" [(ngModel)]="doctor.phone" /></div>
+  <div><input type="text" [(ngModel)]="doctor.degree" /></div>
+  <div><input type="text" [(ngModel)]="doctor.speciality" /></div>
+  <div><input type="text" [(ngModel)]="doctor.active" /></div>
+  <button (click)="onUpdate(doctor)">Save Changes</button>
+  <button (click)="onDelete(doctor)">Delete</button>
+</div>
+
+<h3>Add New Doctor</h3>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <td><input type="text" [(ngModel)]="new_doctor.name"/></td>
+  </tr>
+  <tr>
+    <th>Address</th>
+    <td><input type="text" [(ngModel)]="new_doctor.address"/></td>
+  </tr>
+  <tr>
+    <th>Phone</th>
+    <td><input type="text" [(ngModel)]="new_doctor.phone"/></td>
+  </tr>
+  <tr>
+    <th>Degree</th>
+    <td><input type="text" [(ngModel)]="new_doctor.degree"/></td>
+  </tr>
+  <tr>
+    <th>Speciality</th>
+    <td><input type="text" [(ngModel)]="new_doctor.speciality"/></td>
+  </tr>
+</table>
+
+<button (click)="onAddDoctor()">Save</button>
+
+{{new_doctor | json}}

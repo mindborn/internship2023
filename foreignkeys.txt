@@ -1,0 +1,44 @@
+create table country(
+	countryid int primary key auto_increment,
+	name varchar(200)
+);
+
+create table state
+(
+	stateid int primary key auto_increment,
+	countryid int,
+	name varchar(200),
+
+	foreign key (countryid) references country(countryid)
+);
+
+create table city
+(
+	cityid int primary key auto_increment,
+	stateid int,
+	name varchar(200),
+	longitude float,
+	latutude float,
+	
+	foreign key (stateid) references state(stateid)
+);
+
+insert into country values (0,'India'),(0,'USA');
+
+insert into state values (0,1,'Maharashtra'),(0,1,'Karnataka'),(0,2,'California'),(0,2,'New Jeresy');
+
+insert into city values (0,1,'Solapur',75.9021,17.6636);
+insert into city values (0,1,'Pune',75.9021,17.6636);
+
+insert into city values (0,2,'Bengaluru',75.9021,17.6636);
+insert into city values (0,2,'Mysore',75.9021,17.6636);
+
+insert into city values (0,3,'Fremont',75.9021,17.6636);
+insert into city values (0,3,'LA',75.9021,17.6636);
+
+insert into city values (0,4,'Abcd',75.9021,17.6636);
+insert into city values (0,4,'Efgh',75.9021,17.6636);
+
+select * from country join state on country.countryid=state.countryid;
+
+select country.name as 'Country',state.name as 'State',city.name as 'City' from country,state,city where country.countryid=state.countryid and state.stateid=city.stateid;
